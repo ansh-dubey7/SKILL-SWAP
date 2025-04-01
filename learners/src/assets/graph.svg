@@ -1,0 +1,11 @@
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="carbon:skill-level-advanced">
+<path id="Vector" d="M22.5 23H16.5V3.5H22.5V23ZM15 23H9V9.5H15V23ZM7.5 23H1.5V14H7.5V23Z" fill="url(#paint0_linear_257_2941)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_257_2941" x1="12" y1="3.5" x2="12" y2="23" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A7D1DE"/>
+<stop offset="1" stop-color="#005BE2"/>
+</linearGradient>
+</defs>
+</svg>
