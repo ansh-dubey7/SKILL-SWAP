@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { assets, products } from "../assets/assets.js";
 
+
 const Events = () => {
   const scrollRef = useRef(null);
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { Link } from "react-router-dom";
 
 const footer = () => {
   return (
@@ -7,10 +8,10 @@ const footer = () => {
       <div className='mt-8 border-t-[2px] border-x-[1px] border-blue-500 w-full relative h-[70vh] rounded-t-3xl overflow-hidden contain-size'>
         <div className='flex md:flex-row flex-col md:justify-between items-left p-8 z-20 gap-8'>
             <div className='flex justify-start items-start flex-col'>
-                <div className='flex justify-center items-center space-x-2 w-fit flex-shrink-0'>
+                <Link to='/'><div className='flex justify-center items-center space-x-2 w-fit flex-shrink-0'>
                     <img src={assets.logo} alt="" className='w-6 h-6 rounded mb-0.5'/>
                     <span className="text-lg font-medium text-white">CodingHero</span>
-                </div>
+                </div></Link>
                 <p className="text-white my-2 text-lg">Unlock Your Coding Potential Anytime, Anywhere</p>
             </div>
             <div className='flex justify-start items-start gap-8 z-20'>

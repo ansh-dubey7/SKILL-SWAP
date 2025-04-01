@@ -1,22 +1,19 @@
 import React from "react"
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/header.jsx"
-import Hero from "./components/hero.jsx"
-import Events from "./components/events.jsx"
-import Upcoming from "./components/upcoming.jsx"
-import Benefits from "./components/benefits.jsx"
-import Steps from "./components/steps.jsx"
 import Footer from "./components/footer.jsx"
+import Home from "./pages/Home.jsx"
+import Application from "./pages/Application.jsx"
 
 function App() {
 
   return (
     <div className="bg-black overflow-x-hidden">
       <Header/>
-      <Hero/>
-      <Events/>
-      <Upcoming/>
-      <Benefits/>
-      <Steps/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/application" element={<Application />} />
+        </Routes>
       <Footer/>
     </div>
   )

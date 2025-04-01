@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from '../assets/assets.js'
+import { Link } from "react-router-dom";
 
 const benefits = () => {
   return (
@@ -61,7 +62,7 @@ const benefits = () => {
             <p className="text-white text-sm font-light">Develop your leadership skills</p>
         </div>
       </div>
-      <div className=' px-8 py-2 bg-[#3b82f6] text-white text-md rounded-[8px] hover:bg-blue-600 transition-colors'>Apply Now</div>
+      <Link to='/application'><div className=' px-8 py-2 bg-[#3b82f6] text-white text-md rounded-[8px] hover:bg-blue-600 transition-colors'>Apply Now</div></Link>
     </div>
   )
 }

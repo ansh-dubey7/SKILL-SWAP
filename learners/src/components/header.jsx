@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import { assets } from '../assets/assets.js'
 
 const header = () => {
@@ -7,11 +8,13 @@ const header = () => {
       <div className='mx-auto max-w-7xl px-2 sm:px-4 md:px-8'>
         <div className='flex justify-between items-center h-16'>
           <div className='flex items-center'>
+          <Link to="/">
             <div className='flex justify-center items-center space-x-2 w-fit flex-shrink-0'>
               <img src={assets.logo} alt="logo" className='h-7 rounded' />
               <span className="text-lg font-medium text-white">SkillSwap</span>
-            </div>  
-          </div>
+            </div>
+          </Link>  
+          </div> 
           <div className='item-center space-x-4'>
             <img src={assets.profile} alt=""  className='h-8'/>
           </div>
