@@ -8,9 +8,9 @@ const benefits = () => {
       <img src={assets.badge} alt="" className='my-8 z-20'/>
       <button className="inline-flex items-center text-sm rounded-full py-1 px-2 bg-slate-700 border-t border-blue-100">
           <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-b from-blue-200 to-blue-900 mr-2"></span>
-          <span className="text-blue-400">Coding Hero</span>
+          <span className="text-blue-400">Code Commander</span>
       </button>
-      <h1 className="text-white md:text-5xl text-3xl my-4 text-center z-20">Become a Coding Hero</h1>
+      <h1 className="text-white md:text-5xl text-3xl my-4 text-center z-20">Become a Code Commander</h1>
       <p className="text-white font-light max-w-4xl text-center z-20 md:text-base text-xs">Connect with fellow coders, share insights, and participate in exciting challenges. Enjoy free classes and the chance to win amazing prizes while expanding your tech network!</p>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12 justify-start items-start max-w-6xl z-10'>
         <div className='bg-[#0b0b0b] p-4 flex flex-col gap-4 items-start justify-start rounded-lg border-[2px] border-blue-400 hover:scale-105 transition-transform duration-200'>

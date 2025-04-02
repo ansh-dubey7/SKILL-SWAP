@@ -10,7 +10,7 @@ const footer = () => {
             <div className='flex justify-start items-start flex-col'>
                 <Link to='/'><div className='flex justify-center items-center space-x-2 w-fit flex-shrink-0'>
                     <img src={assets.logo} alt="" className='w-6 h-6 rounded mb-0.5'/>
-                    <span className="text-lg font-medium text-white">CodingHero</span>
+                    <span className="text-lg font-medium text-white">SkillSwap</span>
                 </div></Link>
                 <p className="text-white my-2 text-lg">Unlock Your Coding Potential Anytime, Anywhere</p>
             </div>
@@ -23,7 +23,7 @@ const footer = () => {
                 </ul>
             </div>
         </div>
-        <h1 className="font-[600] resize-x md:text-[13.8cqw] text-[13cqw] text-center bg-gradient-to-t from-black via-blue-700 to-blue-900 bg-clip-text text-transparent z-0">ANSH-DUBEY</h1>
+        <h1 className="font-[600] resize-x md:text-[13.8cqw] text-[13cqw] text-center bg-gradient-to-t from-black via-blue-700 to-blue-900 bg-clip-text text-transparent z-0">SKILLSWAP</h1>
       </div>
       <div className=''></div>
     </div>

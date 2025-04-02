@@ -39,7 +39,7 @@ const Events = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="p-4 flex flex-col gap-4 bg-[#191919] flex-shrink-0 w-80 rounded-lg min-h-[400px] border border-blue-400"
+              className="p-4 flex flex-col gap-4 bg-[#191919] flex-shrink-0 w-80 rounded-lg min-h-[400px] border-[2px] border-blue-400"
             >
               <div className="flex flex-col gap-4 flex-grow">
                 <img 

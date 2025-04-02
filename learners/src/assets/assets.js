@@ -1,14 +1,14 @@
 import logo from "./code.png"
 import profile from "./profile.png"
 import hero_bg from './hero_bg.webp'
-import thumbnail_img from "./thumbnail_img.png"
-import event1 from './event1.jpg'
-import event2 from './event2.png'
-import event3 from './event3.png'
-import event4 from './event4.png'
-import event5 from './event5.png'
-import event6 from './event6.png'
-import event7 from './event7.png'
+import hero5 from "./hero5.jpg"
+import course1 from './course1.jpg'
+import course2 from './course2.jpg'
+import course3 from './course3.jpg'
+import course4 from './course4.jpg'
+import course5 from './course5.jpg'
+import course6 from './course6.jpg'
+import course7 from './course7.jpg'
 import left from "./left_arrow.png"
 import right from "./right_arrow.png"
 import badge from "./badge.png"
@@ -26,12 +26,13 @@ import three from "./3.svg"
 import four from "./4.svg"
 import five from "./5.svg"
 import tick from "./tick.svg"
+import orangebg from "./orangebg.jpeg"
 
 export const assets ={
     logo,
     profile,
     hero_bg,
-    thumbnail_img,
+    hero5,
     left,
     right,
     badge,
@@ -49,42 +50,43 @@ export const assets ={
     four,
     five,
     tick,
+    orangebg,
 
 }
 
 export const products = [
     {
-        event: [event1],
+        event: [course1],
         title: "Web Dev Cohort - Live 1.0",
         description: "Learn HTML, CSS, JS, React, Next.js, Node, Docker, databases like MongoDB/PostgreSQL, DevOps with AWS, and more.",
     },
     {
-        event: [event2],
+        event: [course2],
         title: "React native mastery with 10 projects",
         description: "Learn React Native with 10 projects covering app development, styling, state management, navigation, and advanced features like authentication and music playback.",
     },
     {
-        event: [event3],
+        event: [course3],
         title: "Complete react for beginners",
         description: "Dive into React fundamentals and advanced topics through hands-on projects. Learn JSX, hooks, context API, Redux Toolkit, and full-stack development with Appwrite.",
     },
     {
-        event: [event4],
+        event: [course4],
         title: "Learn Docker with Project",
         description: "Learn ethical hacking, network security, and encryption techniques to protect digital assets.",
     },
     {
-        event: [event5],
+        event: [course5],
         title: "Mobile App Development",
         description: "Build cross-platform mobile apps with React Native, Flutter, and Swift for iOS & Android.",
     },
     {
-        event: [event6],
+        event: [course6],
         title: "Cloud Computing with AWS",
         description: "Master AWS, Azure, and Google Cloud for scalable cloud solutions and DevOps practices.",
     },
     {
-        event: [event7],
+        event: [course7],
         title: "Blockchain & Web3 Development",
         description: "Learn Solidity, smart contracts, Ethereum, and decentralized applications (dApps).",
     },

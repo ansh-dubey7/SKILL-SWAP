@@ -42,7 +42,7 @@ const Application = () => {
       {/* Dots Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle,_#ffffff10_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
       <div className="relative bg-black shadow-xl rounded-2xl p-10 w-full max-w-4xl z-10">
-        <h2 className="text-3xl font-bold text-blue-400 mb-6 text-center">Coding Hero Application</h2>
+        <h2 className="text-3xl font-bold text-blue-400 mb-6 text-center">Code Commander Application</h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
           {/* Basic Personal Information */}
           <div className="col-span-2 grid grid-cols-2 gap-4 p-4">

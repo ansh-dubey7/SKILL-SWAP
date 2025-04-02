@@ -14,7 +14,7 @@ const steps = () => {
             <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-b from-blue-200 to-blue-900 mr-2"></span>
             <span className="text-blue-400">Steps</span>
           </button>
-          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-4 md:mb-6">Your Journey to Becoming a Campus Hero</h2>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-4 md:mb-6">Your Journey to Becoming a Expert</h2>
           <p className="text-gray-300 max-w-3xl mx-auto text-base md:text-lg px-4">Follow these simple steps to become a Campus Hero and make a lasting impact in your college's tech community while earning exciting rewards</p>
         </div>
         <div className='relative'>
