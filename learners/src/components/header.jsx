@@ -16,7 +16,11 @@ const header = () => {
           </Link>  
           </div> 
           <div className='item-center space-x-4'>
-            <img src={assets.profile} alt=""  className='h-8'/>
+          <div className="hidden sm:flex items-center space-x-4">
+            <Link to="/login"><div className="relative bg-neutral-800 text-white hover:bg-neutral-700 transition-all duration-300 rounded-xl px-8 sm:px-12 py-2.5 font-medium">Login</div></Link>
+            <Link to="/login"><div className="relative bg-[#3b82f6] text-white hover:bg-blue-600 transition-all duration-300 rounded-xl px-8 sm:px-12 py-2.5 font-medium">Signup</div></Link>
+          </div>
+            {/* <img src={assets.profile} alt=""  className='h-8'/> */}
           </div>
         </div>
       </div>
