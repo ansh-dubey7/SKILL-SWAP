@@ -1,17 +1,28 @@
 import React, { useRef, useState, useEffect } from "react";
-import { assets, products } from "../assets/assets.js";
+import { assets } from "../assets/assets.js";
 import axios from "axios";
 
 const Events = () => {
   const scrollRef = useRef(null);
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const res = await axios.get('http://localhost:5000/api/events', {
-        params: { type: 'upcoming' },
-      });
-      setEvents(res.data);
+      try {
+        setLoading(true);
+        const res = await axios.get("http://localhost:5000/api/events", {
+          params: { type: "upcoming" },
+        });
+        setEvents(res.data);
+        setError(null);
+      } catch (error) {
+        console.error("Error fetching upcoming events:", error);
+        setError("Failed to load upcoming events. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
     };
     fetchEvents();
   }, []);
@@ -43,50 +54,66 @@ const Events = () => {
         </p>
       </div>
       <div className="w-full overflow-x-hidden py-4 xl:px-48">
-        <div 
-          ref={scrollRef}
-          className="flex gap-8 overflow-x-auto scrollbar-hidden scroll-smooth"
-        >
-          {products.map((product, index) => (
+        {loading ? (
+          <p className="text-white text-center">Loading events...</p>
+        ) : error ? (
+          <p className="text-red-400 text-center">{error}</p>
+        ) : events.length === 0 ? (
+          <p className="text-white text-center">No upcoming events available.</p>
+        ) : (
+          <>
             <div
-              key={index}
-              className="p-4 flex flex-col gap-4 bg-[#191919] flex-shrink-0 w-80 rounded-lg min-h-[400px] border-[2px] border-blue-400"
+              ref={scrollRef}
+              className="flex gap-8 overflow-x-auto scrollbar-hidden scroll-smooth"
             >
-              <div className="flex flex-col gap-4 flex-grow">
-                <img 
-                  src={product.event} 
-                  alt={product.title} 
-                  className="w-full h-48 object-cover rounded-md" 
-                />
-                <h1 className="text-white text-lg font-semibold break-words whitespace-normal">
-                  {product.title}
-                </h1>
-                <p className="text-white text-sm break-words whitespace-normal flex-grow">
-                  {product.description}
-                </p>
-              </div>
-              <div className="w-full">
-                <button className="rounded-md text-sm font-medium bg-white text-black hover:bg-white/90 h-9 px-4 py-2 w-full">
-                  Notify
-                </button>
-              </div>
+              {events.map((event) => (
+                <div
+                  key={event._id} // Use event._id for unique key
+                  className="p-4 flex flex-col gap-4 bg-[#191919] flex-shrink-0 w-80 rounded-lg min-h-[400px] border-[2px] border-blue-400"
+                >
+                  <div className="flex flex-col gap-4 flex-grow">
+                    <img
+                      src={event.image || "https://via.placeholder.com/300"} // Fallback image
+                      alt={event.title}
+                      className="w-full h-48 object-cover rounded-md"
+                    />
+                    <h1 className="text-white text-lg font-semibold break-words whitespace-normal">
+                      {event.title}
+                    </h1>
+                    <p className="text-white text-sm break-words whitespace-normal flex-grow">
+                      {event.description}
+                    </p>
+                    <p className="text-gray-400 text-sm">
+                      By: {event.educatorName}
+                    </p>
+                    <p className="text-gray-400 text-sm">
+                      Date: {new Date(event.date).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <div className="w-full">
+                    <button className="rounded-md text-sm font-medium bg-white text-black hover:bg-white/90 h-9 px-4 py-2 w-full">
+                      Notify
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="flex justify-end gap-4 max-w-6xl mx-auto mt-4">
-          <img 
-            src={assets.left} 
-            alt="Left Arrow" 
-            className="h-8 w-8 rounded-full cursor-pointer hover:opacity-80"
-            onClick={scrollLeft}
-          />
-          <img 
-            src={assets.right} 
-            alt="Right Arrow" 
-            className="h-8 w-8 rounded-full cursor-pointer hover:opacity-80"
-            onClick={scrollRight}
-          />
-        </div>
+            <div className="flex justify-end gap-4 max-w-6xl mx-auto mt-4">
+              <img
+                src={assets.left}
+                alt="Left Arrow"
+                className="h-8 w-8 rounded-full cursor-pointer hover:opacity-80"
+                onClick={scrollLeft}
+              />
+              <img
+                src={assets.right}
+                alt="Right Arrow"
+                className="h-8 w-8 rounded-full cursor-pointer hover:opacity-80"
+                onClick={scrollRight}
+              />
+            </div>
+          </>
+        )}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-blue-500 via-blue-700 to-transparent blur-3xl rounded-full"></div>
       </div>
     </div>
@@ -94,3 +121,4 @@ const Events = () => {
 };
 
 export default Events;
+
