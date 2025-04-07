@@ -1,8 +1,21 @@
 import React, { useRef } from "react";
 import { assets, products } from "../assets/assets.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Events = () => {
   const scrollRef = useRef(null);
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const res = await axios.get('http://localhost:5000/api/events', {
+        params: { type: 'live' },
+      });
+      setEvents(res.data);
+    };
+    fetchEvents();
+  }, []);
 
   const scrollLeft = () => {
     if (scrollRef.current) {

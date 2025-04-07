@@ -1,21 +1,22 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useAuth } from "../context/AuthContext";
 
 const Application = () => {
+
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    country: "",
     linkedin: "",
     techStack: "",
     experience: "",
     role: "",
-    mentorshipExperience: "",
     videoLink: "",
     textAnswer: "",
     github: "",
-    resume: null,
   });
 
   const handleChange = (e) => {
@@ -23,14 +24,50 @@ const Application = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, resume: e.target.files[0] });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const token = localStorage.getItem('token');
+      await axios.post('http://localhost:5000/api/applications', formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      alert('Application submitted successfully!');
+    } catch (error) {
+      console.error(error);
+      alert('Error submitting application');
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted", formData);
-  };
+  // const [formData, setFormData] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   phone: "",
+  //   country: "",
+  //   linkedin: "",
+  //   techStack: "",
+  //   experience: "",
+  //   role: "",
+  //   mentorshipExperience: "",
+  //   videoLink: "",
+  //   textAnswer: "",
+  //   github: "",
+  //   resume: null,
+  // });
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
+
+  // const handleFileChange = (e) => {
+  //   setFormData({ ...formData, resume: e.target.files[0] });
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Form Submitted", formData);
+  // };
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-6 relative overflow-hidden">
@@ -39,8 +76,6 @@ const Application = () => {
       <div className="absolute inset-0 flex justify-center items-center">
         <div className="w-[80vw] h-[80vh] bg-gradient-to-r from-blue-500 to-black rounded-full blur-3xl opacity-30 animate-pulse"></div>
       </div>
-      {/* Dots Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle,_#ffffff10_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
       <div className="relative bg-black shadow-xl rounded-2xl p-10 w-full max-w-4xl z-10">
         <h2 className="text-3xl font-bold text-blue-400 mb-6 text-center">Code Commander Application</h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
