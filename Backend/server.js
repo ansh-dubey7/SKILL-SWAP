@@ -15,6 +15,7 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/applications', require('./routes/applications'));
 app.use('/api/events', require('./routes/events'));
+app.use('/api/quizzes', require('./routes/quizzes'));
 
 // Add Profile Route
 app.get('/api/users/profile', authMiddleware, async (req, res) => {

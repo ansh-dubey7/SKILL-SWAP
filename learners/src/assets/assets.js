@@ -27,6 +27,7 @@ import four from "./4.svg"
 import five from "./5.svg"
 import tick from "./tick.svg"
 import orangebg from "./orangebg.jpeg"
+import video from "./video.mp4"
 
 export const assets ={
     logo,
@@ -51,7 +52,7 @@ export const assets ={
     five,
     tick,
     orangebg,
-
+    video
 }
 
 export const products = [

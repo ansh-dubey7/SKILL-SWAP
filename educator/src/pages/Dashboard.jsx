@@ -131,7 +131,7 @@ const Dashboard = () => {
           )}
         </div>
 
-        <div>
+        {/* <div>
           <h2 className="text-2xl font-bold text-[#3b82f6] mb-6">Your Past Events</h2>
           {loading ? (
             <p className="text-center">Loading events...</p>
@@ -144,7 +144,7 @@ const Dashboard = () => {
               {pastEvents.map(renderEventCard)}
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

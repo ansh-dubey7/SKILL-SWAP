@@ -1,3 +1,4 @@
+// src/pages/Login.jsx
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +8,7 @@ const LoginPage = () => {
   const [emailOrPhone, setEmailOrPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState(""); // Add name state
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const { login, register } = useAuth();
@@ -24,6 +26,9 @@ const LoginPage = () => {
     if (!isLogin && password !== confirmPassword) {
       newErrors.confirmPassword = "Passwords do not match";
     }
+    if (!isLogin && !name) { // Validate name for signup
+      newErrors.name = "Name is required";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -36,7 +41,7 @@ const LoginPage = () => {
         if (isLogin) {
           await login(emailOrPhone, password);
         } else {
-          await register(emailOrPhone, password, 'learner');
+          await register(emailOrPhone, password, 'learner', name); // Pass name to register
         }
         navigate('/'); // Redirect to home page after login/signup
       } catch (error) {
@@ -71,13 +76,24 @@ const LoginPage = () => {
           </button>
         </div>
 
-        {/* <p className="text-gray-300 text-center mb-6 text-sm opacity-80">
-          {isLogin
-            ? "Keep it all together and you’ll be fine"
-            : ""}
-        </p> */}
-
         <form onSubmit={handleSubmit}>
+          {!isLogin && ( // Show name field only for signup, above email
+            <div className="mb-5">
+              <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className={`w-full p-4 bg-gray-900 bg-opacity-50 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 placeholder-gray-400 border ${
+                  errors.name ? "border-red-500" : "border-gray-700 border-opacity-50"
+                }`}
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+              )}
+            </div>
+          )}
+
           <div className="mb-5">
             <input
               type="text"
@@ -85,9 +101,7 @@ const LoginPage = () => {
               value={emailOrPhone}
               onChange={(e) => setEmailOrPhone(e.target.value)}
               className={`w-full p-4 bg-gray-900 bg-opacity-50 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 placeholder-gray-400 border ${
-                errors.emailOrPhone
-                  ? "border-red-500"
-                  : "border-gray-700 border-opacity-50"
+                errors.emailOrPhone ? "border-red-500" : "border-gray-700 border-opacity-50"
               }`}
             />
             {errors.emailOrPhone && (
@@ -102,9 +116,7 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className={`w-full p-4 bg-gray-900 bg-opacity-50 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 placeholder-gray-400 border ${
-                errors.password
-                  ? "border-red-500"
-                  : "border-gray-700 border-opacity-50"
+                errors.password ? "border-red-500" : "border-gray-700 border-opacity-50"
               }`}
             />
             <button
@@ -127,9 +139,7 @@ const LoginPage = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 className={`w-full p-4 bg-gray-900 bg-opacity-50 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 placeholder-gray-400 border ${
-                  errors.confirmPassword
-                    ? "border-red-500"
-                    : "border-gray-700 border-opacity-50"
+                  errors.confirmPassword ? "border-red-500" : "border-gray-700 border-opacity-50"
                 }`}
               />
               {errors.confirmPassword && (
@@ -155,6 +165,7 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
 
 // import React, { useState } from "react";
 // import { useAuth } from "../context/AuthContext";
@@ -188,18 +199,17 @@ export default LoginPage;
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
-//     setErrors({}); // Clear previous errors
+//     setErrors({});
 //     if (validateForm()) {
 //       try {
 //         if (isLogin) {
 //           await login(emailOrPhone, password);
-//           navigate('/');
 //         } else {
 //           await register(emailOrPhone, password, 'learner');
-//           navigate('/');
 //         }
+//         navigate('/'); // Redirect to home page after login/signup
 //       } catch (error) {
-//         setErrors({ submit: error.message || 'An error occurred during signup' });
+//         setErrors({ submit: error.message || 'An error occurred' });
 //       }
 //     }
 //   };
@@ -230,11 +240,11 @@ export default LoginPage;
 //           </button>
 //         </div>
 
-//         <p className="text-gray-300 text-center mb-6 text-sm opacity-80">
+//         {/* <p className="text-gray-300 text-center mb-6 text-sm opacity-80">
 //           {isLogin
 //             ? "Keep it all together and you’ll be fine"
-//             : "Join Atomz and explore the universe"}
-//         </p>
+//             : ""}
+//         </p> */}
 
 //         <form onSubmit={handleSubmit}>
 //           <div className="mb-5">

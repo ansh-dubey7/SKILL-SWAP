@@ -69,7 +69,7 @@ const Events = () => {
               {events.map((event) => (
                 <div
                   key={event._id} // Use event._id for unique key
-                  className="p-4 flex flex-col gap-4 bg-[#191919] flex-shrink-0 w-80 rounded-lg min-h-[400px] border-[2px] border-blue-400"
+                  className="p-4 flex flex-col gap-4 bg-[#191919] flex-shrink-0 w-80 rounded-lg min-h-[400px] border-[1px] border-blue-400"
                 >
                   <div className="flex flex-col gap-4 flex-grow">
                     <img
