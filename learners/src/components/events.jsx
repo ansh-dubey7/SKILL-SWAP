@@ -42,7 +42,7 @@ const Events = () => {
     <div className="w-full md:mt-40 relative px-4 md:px-0">
       <div className="max-w-6xl mx-auto flex flex-col md:items-start items-center md:text-left text-center">
         <button className="inline-flex items-center text-sm rounded-full py-1 px-2 bg-slate-700 border-t border-blue-100">
-          <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-b from-red-400 to-red-900 mr-2"></span>
+          <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-b from-green-400 to-green-900 mr-2"></span>
           <span className="text-blue-400">Live-Classes</span>
         </button>
         <h1 className="text-white md:text-5xl my-4 text-3xl">
@@ -97,7 +97,7 @@ const Events = () => {
                     rel="noopener noreferrer"
                     className="rounded-md text-sm font-medium bg-white text-black hover:bg-white/90 h-9 px-4 py-2 w-full block text-center"
                   >
-                    Watch Now
+                    Join Now
                   </a>
                 </div>
               </div>

@@ -155,7 +155,7 @@ const Application = () => {
 
           {/* Text Answer */}
           <div className="col-span-2 p-4">
-            <h3 className="text-lg text-white mb-2">Why do you want to be a Coding Hero?</h3>
+            <h3 className="text-lg text-white mb-2">Why do you want to be a Code Commander?</h3>
             <textarea
               name="textAnswer"
               rows="4"

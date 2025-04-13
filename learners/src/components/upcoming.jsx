@@ -43,7 +43,7 @@ const Events = () => {
     <div className="w-full md:mt-20 relative px-4 md:px-0">
       <div className="max-w-6xl mx-auto flex flex-col md:items-start items-center md:text-left text-center">
         <button className="inline-flex items-center text-sm rounded-full py-1 px-2 bg-slate-700 border-t border-blue-100">
-          <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-b from-blue-200 to-blue-900 mr-2"></span>
+          <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-b from-yellow-200 to-yellow-900 mr-2"></span>
           <span className="text-blue-400">Upcoming-Classes</span>
         </button>
         <h1 className="text-white md:text-5xl my-4 text-3xl">
