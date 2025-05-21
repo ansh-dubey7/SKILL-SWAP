@@ -44,7 +44,6 @@ export const assets ={
     code,
     badge1,
     arrow_down,
-    arrow_up,
     one,
     two,
     three,
