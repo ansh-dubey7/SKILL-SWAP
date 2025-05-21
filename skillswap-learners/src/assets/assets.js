@@ -18,8 +18,6 @@ import network from "./network.svg"
 import graph from "./graph.svg"
 import code from "./code.svg"
 import badge1 from "./badge1.svg"
-import arrow_up from "./arrow_up.svg"
-import arrow_down from "./arrow_down.svg"
 import one from "./1.svg"
 import two from "./2.svg"
 import three from "./3.svg"
@@ -43,7 +41,6 @@ export const assets ={
     graph,
     code,
     badge1,
-    arrow_down,
     one,
     two,
     three,
