@@ -9,7 +9,7 @@ import course4 from './course4.jpg'
 import course5 from './course5.jpg'
 import course6 from './course6.jpg'
 import course7 from './course7.jpg'
-import left from "./left_arrow.png"
+import left from "./left_arrow_temp.png"
 import right from "./right_arrow.png"
 import badge from "./badge.png"
 import money from "./money.svg"
